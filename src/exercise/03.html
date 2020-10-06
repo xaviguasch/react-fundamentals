@@ -18,7 +18,7 @@
     //   children: 'Hello World',
     // })
 
-    const elJSX = <div className="container">Hello World!</div>
+    // const elJSX = <div className="container">Hello World!</div>
 
     // 💰 there are a few subtle differences between JSX and HTML. One such
     // difference is how you apply a class to an element in JSX is by using
@@ -26,6 +26,19 @@
     // 📜 You can learn the differences between JSX and HTML syntax from the React docs here:
     // https://reactjs.org/docs/dom-elements.html#differences-in-attributes
 
-    ReactDOM.render(elJSX, document.getElementById('root'))
+    // EXTRA CREDIT 1
+
+    // const className = 'container'
+    // const children = 'Hello World'
+    // const element = <div className={className}>{children}</div>
+
+    // EXTRA CREDIT 2
+
+    const children = 'Hello World'
+    const className = 'container'
+    const props = {children, className}
+    const element = <div {...props} />
+
+    ReactDOM.render(element, document.getElementById('root'))
   </script>
 </body>
