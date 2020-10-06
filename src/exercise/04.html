@@ -51,14 +51,48 @@
 
     // EXTRA CREDIT 2
 
-    function Message({children}) {
-      return <div className="message">{children}</div>
+    // function Message({children}) {
+    //   return <div className="message">{children}</div>
+    // }
+
+    // const element = (
+    //   <div className="container">
+    //     <Message>Hello World</Message>
+    //     <Message>Goodbye World</Message>
+    //   </div>
+    // )
+
+    // EXTRA CREDIT 3
+
+    const PropTypes = {
+      string(props, propName, componentName) {
+        if (typeof props[propName] !== 'string') {
+          return new Error(
+            `Hey, the component ${componentName} needs the prop ${propName} to be a string, but a ${typeof props[
+              propName
+            ]} was passed`,
+          )
+        }
+      },
+    }
+
+    function Message({subject, greeting}) {
+      return (
+        <div className="message">
+          {greeting}, {subject}
+        </div>
+      )
+    }
+
+    Message.propTypes = {
+      subject: PropTypes.string,
+      greeting: PropTypes.string,
     }
 
     const element = (
       <div className="container">
-        <Message>Hello World</Message>
-        <Message>Goodbye World</Message>
+        <Message subject="World" greeting="Hello" />
+        <Message subject="World" greeting="Goodbye" />
       </div>
     )
 
